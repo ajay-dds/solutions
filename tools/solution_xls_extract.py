@@ -90,7 +90,6 @@ def get_rrs_scenarios(wb, solution_category):
             s = {}
 
             s["name"] = scenario_name
-            print(s["name"])
             s["solution_category"] = solution_category
             s["vmas"] = "VMAs"
 
@@ -1597,6 +1596,7 @@ def extract_vmas(f, wb, outputdir):
         vmas = vma_r.read_xls(csv_path=vma_dir_path, alt_vma=True)
     else:
         vmas = vma_r.read_xls(csv_path=vma_dir_path)
+    print(vmas)
     f.write("VMAs = {\n")
     for _, row in vmas.iterrows():
         f.write(f"    '{row['Title on xls']}': vma.VMA(\n")
